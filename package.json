@@ -1,42 +1,35 @@
 {
   "name": "skystore-desktop-container",
-  "version": "1.0.1",
+  "version": "0.2.0",
   "description": "Skystore Electron container for desktop application",
   "main": "main.js",
   "scripts": {
     "start": "electron-webpack dev",
-    "compile": "electron-webpack",
-    "build": "npm run compile && export CSC_NAME=DEVML0239431.bskyb.com && build --config config/electron-builder.production.yml",
-    "unpackaged": "npm run compile && build --dir --config config/electron-builder.production.yml",
-    "build-snapshot": "npm run compile && build --config config/electron-builder.snapshot.yml",
-    "unpackaged-snapshot": "npm run compile && build --dir --config config/electron-builder.snapshot.yml",
-    "release": "export GH_TOKEN=e619ae3e84949d113e8faff022f34960302dc009 && npm run compile && build --config config/electron-builder.production.yml"
+    "compile": "rm -rf dist && electron-webpack",
+    "build": "npm run compile && build --config config/production/electron-builder.production.yml",
+    "unpackaged": "npm run compile && build --dir --config config/production/electron-builder.production.yml",
+    "build-snapshot": "npm run compile && build --config config/snapshot/electron-builder.snapshot.yml",
+    "unpackaged-snapshot": "npm run compile && build --dir --config config/snapshot/electron-builder.snapshot.yml",
+    "release": "export GH_TOKEN=1fdc4a80ae92e99b3a1bde56bb61aef97113ae47 && build --config config/production/electron-builder.production.yml"
   },
   "dependencies": {
-    "electron-log": "^2.2.14",
-    "electron-updater": "^2.21.8",
-    "source-map-support": "^0.5.4"
+    "electron-updater": "2.21.8",
+    "source-map-support": "0.5.4"
   },
   "devDependencies": {
     "electron": "1.8.4",
-    "electron-builder": "^20.9.2",
-    "electron-webpack": "^2.0.1",
-    "webpack": "^4.6.0"
+    "electron-builder": "20.9.2",
+    "electron-webpack": "2.0.1",
+    "webpack": "4.6.0"
   },
   "electronWebpack": {
     "main": {
       "sourceDirectory": "src",
-      "extraEntries": [
-        "./src/preloaders/index.js"
-      ]
+      "extraEntries": [ "./src/preloaders/index.js" ]
     },
     "renderer": {
       "sourceDirectory": "src/renderers"
-    }
-  },
-  "files": [
-    "*.js",
-    "build",
-    "node_modules"
-  ]
+    },
+    "commonSourceDirectory": "src/common"
+  }
 }

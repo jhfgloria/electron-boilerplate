@@ -4,6 +4,6 @@ copyright: Copyright © 2018 Sky
 electronVersion: 1.8.4
 mac:
   category: public.app-category.entertainment
-  target: dmg
-  icon: src/resources/icons/snapshots/icon_512x512.png
+  target: [ dmg, zip ]
+  icon: ../resources/icons/snapshots/icon_512x512.png
   type: development
