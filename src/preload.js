@@ -1,9 +1,10 @@
 init();
 
 function init() {
-  window.desktopIntegration = {
-    // attach objects or functions to window
-  };
+  window.desktopIntegration = { a: 1 };
+  // window.desktopIntegration = {
+  //   attach objects or functions to window
+  // };
   attachIPCListeners();
 }
 

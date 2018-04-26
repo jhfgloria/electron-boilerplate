@@ -1,16 +1,13 @@
-import { app, BrowserWindow, dialog, ipcMain as ipc } from 'electron';
+import { app, BrowserWindow, ipcMain as ipc } from 'electron';
 import path from 'path';
 import { format as formatURL }  from 'url';
 import { autoUpdater } from 'electron-updater';
 import UpgradeHelper from './common/upgradeHelper';
+import env from 'env';
+import './renderer.html';
 
 let mainWindow;
 const upgradeHelper = new UpgradeHelper(autoUpdater, app.getName());
-
-if (process.platform === 'darwin') {
-  app.commandLine.appendSwitch('widevine-cdm-path', path.join(__static, 'widevine_cdm/mac/widevinecdmadapter.plugin'));
-  app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.1004');
-}
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
@@ -19,12 +16,12 @@ app.on('ready', () => {
     }
   });
   mainWindow.loadURL(formatURL({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, './renderer.html'),
     protocol: 'file',
     slashes: true
   }));
 
-  if (process.env.NODE_ENV === 'development') {
+  if (env.environment === 'development') {
     mainWindow.webContents.openDevTools();
   } else {
     mainWindow.webContents.openDevTools();

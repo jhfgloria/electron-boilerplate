@@ -2,9 +2,13 @@ appId: com.sky.electron.production.skystore
 productName: Skystore Desktop
 copyright: Copyright © 2018 Sky
 electronVersion: 1.8.4
+directories:
+  output: "releases"
 mac:
   category: public.app-category.entertainment
-  target: [ dmg, zip ]
+  target:
+    - "dmg"
+    - "zip"
   icon: ../resources/icons/production/icon_512x512.png
   type: distribution
   publish: github

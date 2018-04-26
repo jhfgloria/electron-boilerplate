@@ -1,3 +1,5 @@
+import { dialog } from 'electron';
+
 export default class UpgradeHelper {
   constructor(autoUpdater, appName) {
     this.autoUpdater = autoUpdater;
@@ -9,7 +11,7 @@ export default class UpgradeHelper {
   }
 
   promptInstallationMessage(event, releaseNotes, releaseName) {
-    let message = this.appName + ' ' + releaseName + ' is now available. It will be installed the next time you restart the application.';
+    let message = `${this.appName} ${releaseName} is now available. It will be installed the next time you restart the application.`;
 
     if (releaseNotes) {
       const splitNotes = releaseNotes.split(/[^\r]\n/);
