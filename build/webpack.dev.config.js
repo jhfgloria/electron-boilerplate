@@ -6,11 +6,11 @@ module.exports = () => {
   return merge(base('development', 'development'), {
     entry: {
       main: "./src/main.js",
-      renderer: "./src/renderers/renderer.js"
+      skystore: "./src/renderers/skystore.js"
     },
     output: {
-      filename: "[name]/[name].js",
-      path: path.resolve(__dirname, "../dist")
+      filename: "[name].js",
+      path: path.resolve(__dirname, "../dist/main/")
     }
   });
 };

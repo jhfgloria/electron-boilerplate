@@ -4,19 +4,21 @@ import { format as formatURL }  from 'url';
 import { autoUpdater } from 'electron-updater';
 import UpgradeHelper from './common/upgradeHelper';
 import env from 'env';
-import './renderer.html';
+import platform from 'platform';
+import './skystore.html';
+
+// Set widevine plugin
+app.commandLine.appendSwitch('widevine-cdm-path', path.join(__dirname, env.static, platform.widevine_cdm_path));
+app.commandLine.appendSwitch('widevine-cdm-version', platform.widevine_cdm_version);
 
 let mainWindow;
 const upgradeHelper = new UpgradeHelper(autoUpdater, app.getName());
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    webPreferences: {
-      plugins: true
-    }
-  });
-  mainWindow.loadURL(formatURL({
-    pathname: path.join(__dirname, './renderer.html'),
+  mainWindow = new BrowserWindow();
+  mainWindow.loadURL(
+    formatURL({
+    pathname: path.join(__dirname, './skystore.html'),
     protocol: 'file',
     slashes: true
   }));
@@ -24,7 +26,7 @@ app.on('ready', () => {
   if (env.environment === 'development') {
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.webContents.openDevTools();
+    // Set autoUpdater job
     autoUpdater.on('update-downloaded', upgradeHelper.promptInstallationMessage);
     upgradeHelper.checkForUpdates();
   }

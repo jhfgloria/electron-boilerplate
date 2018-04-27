@@ -1,4 +1,5 @@
 {
   "environment": "snapshot",
+  "static": "../static",
   "url": "https://qs.int.skystore.com/"
 }

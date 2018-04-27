@@ -6,11 +6,11 @@
     "clean": "rm -rf dist/* releases/*",
     "start": "npm run clean && webpack --config=build/webpack.dev.config.js && electron dist/main/main.js",
     "compile-snapshot": "npm run clean && webpack --env=snapshot --config=build/webpack.app.config.js",
-    "build-snapshot": "npm run compile-snapshot && build --config config/build.snapshot.yml",
     "unpackaged-snapshot": "npm run compile-snapshot && build --dir --config config/build.snapshot.yml",
+    "build-snapshot": "npm run compile-snapshot && build --config config/build.snapshot.yml",
     "compile-production": "npm run clean && webpack --env=production --config=build/webpack.app.config.js",
-    "build": "npm run compile-production && build --config config/build.production.yml",
     "unpackaged": "npm run compile-production && build --dir --config config/build.production.yml",
+    "build": "npm run compile-production && build --config config/build.production.yml",
     "release": "export GH_TOKEN=eb48850fe6b9522ab8f713df0172b43da0d85494 && npm run compile-production && build --config config/build.production.yml"
   },
   "dependencies": {
@@ -18,14 +18,14 @@
     "source-map-support": "0.5.4"
   },
   "devDependencies": {
-    "electron": "1.8.4",
+    "electron": "2.0.0-beta.1",
     "electron-builder": "20.9.2",
-    "electron-reload": "^1.2.2",
+    "electron-reload": "1.2.2",
     "electron-webpack": "2.0.1",
-    "file-loader": "^1.1.11",
-    "friendly-errors-webpack-plugin": "^1.7.0",
+    "file-loader": "1.1.11",
+    "friendly-errors-webpack-plugin": "1.7.0",
     "webpack": "4.6.0",
-    "webpack-merge": "^4.1.2",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-merge": "4.1.2",
+    "webpack-node-externals": "1.7.2"
   }
 }

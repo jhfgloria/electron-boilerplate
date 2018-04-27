@@ -12,7 +12,8 @@ module.exports = (env, mode) => {
     externals: [nodeExternals()],
     resolve: {
       alias: {
-        env: path.resolve(__dirname, `../config/env_${env}.json`)
+        env: path.resolve(__dirname, `../config/env_${env}.json`),
+        platform: path.resolve(__dirname, `../config/platform_${process.platform}.json`)
       }
     },
     devtool: "source-map",
@@ -32,7 +33,7 @@ module.exports = (env, mode) => {
           use: [{
             loader: 'file-loader',
             options: {
-              name: 'main/[name].html'
+              name: '[name].html'
             }
           }]
         }

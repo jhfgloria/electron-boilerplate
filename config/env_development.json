@@ -1,4 +1,5 @@
 {
   "environment": "development",
-  "url": "http://cmt.skystore.com"
+  "static": "../../static",
+  "url": "https://shaka-player-demo.appspot.com"
 }
