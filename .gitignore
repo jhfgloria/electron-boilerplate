@@ -1,3 +1,4 @@
-/dist
-/node_modules
-/releases
+dist
+node_modules
+electron
+.DS_Store

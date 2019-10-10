@@ -1,31 +1,32 @@
 {
-  "name": "skystore-desktop-container",
-  "version": "0.2.0",
-  "description": "Skystore Electron container for desktop application",
+  "name": "electron-boilerplate",
+  "version": "0.0.0",
+  "description": "Electron boilerplate using React",
+  "keywords": [
+    "electron",
+    "react",
+    "webpack"
+  ],
   "scripts": {
-    "clean": "rm -rf dist/* releases/*",
-    "start": "npm run clean && webpack --config=build/webpack.dev.config.js && electron dist/main/main.js",
-    "compile-snapshot": "npm run clean && webpack --env=snapshot --config=build/webpack.app.config.js",
-    "unpackaged-snapshot": "npm run compile-snapshot && build --dir --config config/build.snapshot.yml",
-    "build-snapshot": "npm run compile-snapshot && build --config config/build.snapshot.yml",
-    "compile-production": "npm run clean && webpack --env=production --config=build/webpack.app.config.js",
-    "unpackaged": "npm run compile-production && build --dir --config config/build.production.yml",
-    "build": "npm run compile-production && build --config config/build.production.yml",
-    "release": "export GH_TOKEN=eb48850fe6b9522ab8f713df0172b43da0d85494 && npm run compile-production && build --config config/build.production.yml"
-  },
-  "dependencies": {
-    "electron-updater": "2.21.8",
-    "source-map-support": "0.5.4"
+    "build:dev:main": "webpack --mode development --config=main-webpack.config.js",
+    "build:dev:render": "webpack --mode development --devtool sourcemap --config=render-webpack.config.js",
+    "build:dev": "npm run build:dev:main && npm run build:dev:render",
+    "start:render": "webpack-dev-server --config=render-webpack.config.js --mode development --devtool source-map --hot --open",
+    "start": "npm run build:dev:render && npm run build:dev:main && electron dist/main.js"
   },
   "devDependencies": {
-    "electron": "2.0.0-beta.1",
-    "electron-builder": "20.9.2",
-    "electron-reload": "1.2.2",
-    "electron-webpack": "2.0.1",
-    "file-loader": "1.1.11",
-    "friendly-errors-webpack-plugin": "1.7.0",
-    "webpack": "4.6.0",
-    "webpack-merge": "4.1.2",
-    "webpack-node-externals": "1.7.2"
+    "@babel/core": "7.6.2",
+    "@babel/preset-env": "7.6.2",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "8.0.6",
+    "electron": "6.0.11",
+    "html-webpack-plugin": "3.2.0",
+    "webpack": "4.41.0",
+    "webpack-cli": "3.3.9",
+    "webpack-dev-server": "3.8.2"
+  },
+  "dependencies": {
+    "react": "16.10.2",
+    "react-dom": "16.10.2"
   }
 }

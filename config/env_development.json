@@ -1,5 +1,0 @@
-{
-  "environment": "development",
-  "static": "../../static",
-  "url": "https://shaka-player-demo.appspot.com"
-}
