@@ -6,7 +6,9 @@ I try to use the latest versions of the npm libs included in it (but sometimes I
 
 ## Available npm commands:
 Start development for react application only: `npm run start:render`
+
 Start development for electron application: `npm run start`
+
 Build, bundle and package application: `npm run build`
 
 ## Libraries installed:
