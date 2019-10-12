@@ -14,7 +14,8 @@
     "build:prod:render": "webpack --mode production --config=render-webpack.config.js",
     "build:dev": "npm run build:dev:main && npm run build:dev:render",
     "build:prod": "npm run build:prod:main && npm run build:prod:render",
-    "start:render": "webpack-dev-server --config=render-webpack.config.js --mode development --devtool source-map --hot --open",
+    "build": "./scripts/build.sh",
+    "start:render": "webpack-dev-server --config=render-webonly-webpack.config.js --mode development --devtool source-map --hot --open",
     "start": "npm run build:dev:render && npm run build:dev:main && electron dist/main.js"
   },
   "devDependencies": {

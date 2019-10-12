@@ -18,7 +18,7 @@ rm electron-v6.0.12-darwin-x64.zip
 mkdir app
 cp ../dist/** app/
 cp ../package.json app/
-mv LICENSE** app/
+mv LICENSE** version app/
 ../node_modules/.bin/asar pack app app.asar
 rm -rf app
 mv app.asar Electron.app/Contents/Resources/
