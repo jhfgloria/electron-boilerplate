@@ -19,14 +19,14 @@
     "start": "npm run build:dev:render && npm run build:dev:main && electron dist/main.js"
   },
   "devDependencies": {
-    "@babel/core": "7.6.2",
-    "@babel/preset-env": "7.6.2",
-    "@babel/preset-react": "7.0.0",
-    "asar": "^2.0.1",
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
+    "@babel/preset-react": "7.6.3",
+    "asar": "2.0.1",
     "babel-loader": "8.0.6",
-    "electron": "6.0.11",
+    "electron": "6.0.12",
     "html-webpack-plugin": "3.2.0",
-    "webpack": "4.41.0",
+    "webpack": "4.41.1",
     "webpack-cli": "3.3.9",
     "webpack-dev-server": "3.8.2"
   },
