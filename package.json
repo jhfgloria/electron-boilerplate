@@ -10,7 +10,10 @@
   "scripts": {
     "build:dev:main": "webpack --mode development --config=main-webpack.config.js",
     "build:dev:render": "webpack --mode development --devtool sourcemap --config=render-webpack.config.js",
+    "build:prod:main": "webpack --mode production --config=main-webpack.config.js",
+    "build:prod:render": "webpack --mode production --config=render-webpack.config.js",
     "build:dev": "npm run build:dev:main && npm run build:dev:render",
+    "build:prod": "npm run build:prod:main && npm run build:prod:render",
     "start:render": "webpack-dev-server --config=render-webpack.config.js --mode development --devtool source-map --hot --open",
     "start": "npm run build:dev:render && npm run build:dev:main && electron dist/main.js"
   },
@@ -18,6 +21,7 @@
     "@babel/core": "7.6.2",
     "@babel/preset-env": "7.6.2",
     "@babel/preset-react": "7.0.0",
+    "asar": "^2.0.1",
     "babel-loader": "8.0.6",
     "electron": "6.0.11",
     "html-webpack-plugin": "3.2.0",
