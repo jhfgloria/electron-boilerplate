@@ -9,6 +9,13 @@ I try to use the latest versions of the npm libs included in it (but sometimes I
 - Start development for electron application: `npm run start`
 - Build, bundle and package application: `npm run build`
 
+## Folders explained:
+- `src`: all code lives here
+- `src/render`: all the code related with react lives here
+- `src/main`: all the code related to electron lives here
+- `dist`: code bundled by webpack lives here
+- `bin`: final electron deliverable lives here
+
 ## Libraries installed:
 - react and react-dom for interface development 🖼
 - webpack for bundling 📦
